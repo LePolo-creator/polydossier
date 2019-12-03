@@ -17,7 +17,7 @@ int main(){
 
     //on initialise le tableau 
     carac tab[taille] ;
-    int i;
+    int i,j;
 
     for (i = 0; i < taille; i++)
     {
@@ -28,41 +28,47 @@ int main(){
         tab[i]=element_vide ;
 
     }
-    // char test[] = "Je m'apè!le&éhe^$";
+    char test[] = "je m'apè!le&éhe^$";
 
-    char buffer ;
-    buffer = L'é' ;
-    printf("%lc" , buffer) ;
+    wchar_t buffer ;
     
 
-    int j=0 ;
+    int iterateur=0; 
+    while(test[iterateur] != '\0') { 
+        //-------------------------------
+        buffer = test[iterateur] ;
+        j=0 ;
 
-    while (tab[j].caractere != NULL)
-    {
-        if (tab[j].caractere==buffer)
-        {
-            tab[j].freq += 1 ;
-            break ;
+                while (tab[j].caractere != NULL)
+                {
+                    if (tab[j].caractere==buffer)
+                    {
+                        tab[j].freq += 1 ;
+                        break ;
+                    }
+                    j++ ;
+                }
+
+                if ((tab[j].caractere == NULL)&&(tab[j].freq == 0))
+                {
+                    tab[j].caractere = buffer ;
+                    tab[j].freq = 1 ;
+                }
+        //-----------------------------------
+        iterateur++; 
         }
-        j++ ;
-    }
-
-    if ((tab[j].caractere == NULL)&&(tab[j].caractere == 0))
-    {
-        tab[j].caractere = buffer ;
-        tab[j].freq = 1 ;
-    }
-    
-    
-    
     
 
+                
     for ( i = 0; i < taille; i++)
     {
-        printf("%lc , %d \n" , tab[i].caractere , tab[i].freq) ;
+
+        printf(" %c , %d || " , tab[i].caractere , tab[i].freq) ;
     }
 
-}
+    
+    
 
+}
 
 
