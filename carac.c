@@ -18,10 +18,10 @@ int main(){
     //on initialise le tableau 
     carac tab[taille] ;
     int i,j;
-
+    /* Peut etre remplacé par la fonction calloc <!> */
     for (i = 0; i < taille; i++)
     {
-        carac element_vide ;
+        carac element_vide ; // tu peut sortir ces 3 lignes de la boucles
         element_vide.caractere=NULL ;
         element_vide.freq=0 ;
 
@@ -38,7 +38,8 @@ int main(){
         //-------------------------------
         buffer = test[iterateur] ;
         j=0 ;
-
+        //J'ai compris ce que tu voulais faire mais ca peut te faire une boucle infinie et une erreur de segmentation
+        // Si nb de caractere different == taille
                 while (tab[j].caractere != NULL)
                 {
                     if (tab[j].caractere==buffer)
